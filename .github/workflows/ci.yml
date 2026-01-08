@@ -42,8 +42,8 @@ jobs:
 
       # 严格按锁文件安装依赖（CI 推荐使用 frozen-lockfile）
       - run: pnpm install --frozen-lockfile
-      # 可选 lint：如果项目没有 lint 脚本也不报错
-      - run: pnpm run lint --if-present
+      # 运行 lint
+      - run: pnpm run lint
       # 运行单测（CI 模式）
       - run: pnpm run test:ci
       # 构建产物（生成 dist/）
