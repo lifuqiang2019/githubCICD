@@ -3,6 +3,7 @@ const crypto = require('crypto')
 const { spawn } = require('child_process')
 
 const PORT = Number(process.env.PORT || 9000)
+const HOST = process.env.HOST || '127.0.0.1'
 const WEBHOOK_SECRET = process.env.WEBHOOK_SECRET || ''
 const DEPLOY_DIR = process.env.DEPLOY_DIR || '/srv/vite-app'
 const DIST_DIR = process.env.DIST_DIR || '/var/www/vite-app'
@@ -106,7 +107,6 @@ const server = http.createServer((req, res) => {
   })
 })
 
-server.listen(PORT, '127.0.0.1', () => {
-  process.stdout.write(`listening on http://127.0.0.1:${PORT}\n`)
+server.listen(PORT, HOST, () => {
+  process.stdout.write(`listening on http://${HOST}:${PORT}\n`)
 })
-
