@@ -20,9 +20,12 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: npm
+          cache: pnpm
+          cache-dependency-path: pnpm-lock.yaml
 
-      - run: npm ci
-      - run: npm run lint --if-present
-      - run: npm run test:ci
-      - run: npm run build
+      - run: corepack enable
+      - run: pnpm --version
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm run lint --if-present
+      - run: pnpm run test:ci
+      - run: pnpm run build
