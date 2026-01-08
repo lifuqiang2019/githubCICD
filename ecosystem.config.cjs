@@ -2,7 +2,7 @@ module.exports = {
   apps: [
     {
       name: 'github-webhook',
-      script: '/srv/vite-app/scripts/webhook-server.js',
+      script: '/srv/vite-app/scripts/webhook-server.cjs',
       exec_mode: 'fork',
       instances: 1,
       env: {

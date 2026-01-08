@@ -26,9 +26,9 @@ function runDeploy() {
     `cd "${DEPLOY_DIR}"`,
     'git fetch --all --prune',
     'git reset --hard origin/main',
-    'npm ci',
-    'npm run test:ci',
-    'npm run build',
+    'pnpm install --frozen-lockfile',
+    'pnpm run test:ci',
+    'pnpm run build',
     `mkdir -p "${DIST_DIR}"`,
     `rsync -a --delete "${DEPLOY_DIR}/dist/" "${DIST_DIR}/"`,
     'systemctl reload nginx || true',
@@ -109,3 +109,4 @@ const server = http.createServer((req, res) => {
 server.listen(PORT, '127.0.0.1', () => {
   process.stdout.write(`listening on http://127.0.0.1:${PORT}\n`)
 })
+
