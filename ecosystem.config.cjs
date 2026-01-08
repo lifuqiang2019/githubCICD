@@ -8,7 +8,7 @@ module.exports = {
       env: {
         PORT: '9000',
         HOST: '0.0.0.0',
-        WEBHOOK_SECRET: '替换为你的Secret',
+        WEBHOOK_SECRET: '9m7dZKk1v8nQY3W4aT2sLhP0rXcBfUeVjG6NqS5iM1o',
         DEPLOY_DIR: '/srv/vite-app',
         DIST_DIR: '/var/www/vite-app',
       },
